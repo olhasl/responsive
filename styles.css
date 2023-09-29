@@ -1,0 +1,74 @@
+.content {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div {
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+#small {
+    background-color: red;
+    width: 100%;
+}
+#medium {
+    background-color: green;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+}
+#large {
+    background-color: blue;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+}
+/* Red background for viewport width < 300px */
+@media screen and (max-width: 299px) {
+    body {
+        background-color: red;
+    }
+    #small {
+        max-width: 100%;
+        font-size: 16px;
+    }
+    #medium, #large {
+        display: none;
+    }
+}
+/* Green background for viewport width >= 300px and < 768px */
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    body {
+        background-color: green;
+    }
+    #medium {
+        max-width: 100%;
+        font-size: 25px;
+    }
+    .content {
+        flex-direction: column;
+    }
+    #small, #large {
+        display: none;
+    }
+}
+/* Blue background for viewport width >= 768px */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: blue;
+    }
+    #large {
+        max-width: 100%;
+        font-size: 40px;
+    }
+    .content {
+        justify-content: space-between;
+    }
+    #small, #medium {
+        display: none;
+    }
+}
+
